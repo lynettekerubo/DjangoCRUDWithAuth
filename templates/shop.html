@@ -1,0 +1,27 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <h1 class="text-secondary text-center"> Our Shop</h1>
+        <table class="table table-hover table-danger">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Pay</th>
+
+            </tr>
+            {% for product in all_products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.qnty }}</td>
+                    <td>{{ product.size }}</td>
+                    <td>{{ product.price }}</td>
+                    <td><a class="btn btn-success" href="/pay/{{ product.id }}">Pay</a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+{% endblock %}
